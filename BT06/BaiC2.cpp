@@ -14,15 +14,30 @@ int pow(int x, int e) {
 
 int main()
 {
-    
+    int v [26];
     
     cin >> n >> k;
     for (int m = 0; m < pow(n, k); m++) {
         int l = m;
+        int ok = 1;
+        for (int i = 0; i < 26; i++) v[i] = 0;
         for (int i = 0; i < k; i++) {
-            cout << (char)('a' + (l % n));
+            v[l % n] ++;
+            if (v[l % n] > 1) {
+                ok = 0;
+                break;
+            }
             l /= n;
         }
+        l = m;
+        if (!ok) continue;
+        string s = "";
+        for (int i = 0; i < k; i++) {
+            // cout << (char)('a' + (l % n));
+            s += (char)('a' + (l % n));
+            l /= n;
+        }
+        for (int i = k - 1; i >= 0; i--) cout << s[i];
         cout << "\n";
     }
     return 0;
