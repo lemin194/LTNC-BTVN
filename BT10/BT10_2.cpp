@@ -30,8 +30,8 @@ struct String
 };
 int main ()
 {
-	String greeting("hi");
-	greeting.append_(" gonna cry a lot"); 
+	String greeting("abc");
+	greeting.append_(" def"); 
 	greeting.print();
 	return 0;	
 }
